@@ -32,75 +32,52 @@ int missingNum(vector<int>& arr) {
 
 // another solution
     
-int missingNum(vector<int>& arr) {
-        // code here
-        int size = arr.size();
-        
-        int sum = 0;
-        long long n = size+1;
-        
-        for(int i=0;i<size;i++){
-            sum+=arr[i];
+    int missingNum(vector<int>& arr) {
+            // code here
+            int size = arr.size();
+            
+            int sum = 0;
+            long long n = size+1;
+            
+            for(int i=0;i<size;i++){
+                sum+=arr[i];
+            }
+            
+            //  sum = 11
+            
+            //  sum of first n natural number
+            n = n*(n+1)/2;
+            // n = 15
+            
+            return n-sum;
+            
+            
         }
-        
-        //  sum = 11
-        
-        //  sum of first n natural number
-        n = n*(n+1)/2;
-        // n = 15
-        
-        return n-sum;
-        
-        
-    }
 
 
     // Another solution
 
- class Solution {
-  public:
-    int missingNum(vector<int>& arr) {
-        // code here
-        int size = arr.size();
-        int ans = 0;
-        
-        //  xor of whole array
-        for(int i=0;i<size;i++){
-            ans = ans^arr[i];
+    class Solution {
+    public:
+        int missingNum(vector<int>& arr) {
+            // code here
+            int size = arr.size();
+            int ans = 0;
+            
+            //  xor of whole array
+            for(int i=0;i<size;i++){
+                ans = ans^arr[i];
+            }
+            
+            // ans = xor of array
+            
+            // xor karunga to size+1
+            int x = 0;
+            for(int i=1;i<=size+1;i++){
+            x = x^i;
+            }
+            
+            return ans^x;
         }
-        
-        // ans = xor of array
-        
-        // xor karunga to size+1
-        int x = 0;
-        for(int i=1;i<=size+1;i++){
-           x = x^1;
-        }
-        
-        return ans^x;
-    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    int main(){
-    
-    vector<int> arr = {1,2,3,4,6};
-    
-    cout<<missingNum(arr);
-    
-    return 0;
-}
-};   
+    };
